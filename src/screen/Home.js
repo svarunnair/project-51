@@ -63,7 +63,7 @@ function Home() {
   return (
    <View style={styles.container}>
       <Header label="Food Central"/>
-      <Text>Home page....!</Text>
+      {/* <Text>Home page....!</Text> */}
        <StatusBar barStyle="dark-content"/>
        <FlatList 
        data={restautents} 
