@@ -4,14 +4,19 @@ import { View } from 'react-native'
 import IconLabel from '../components/IconLabel'
 import { Button } from '@rneui/base'
 import { useNavigation } from '@react-navigation/native';
+
 function Menu({data}) {
+  
  const navigation = useNavigation();
+
+
   console.log("MenuDataaaaa",data)
  console.log("MenuNav",navigation)
 
 
-  const navigateToPageX = () => {
-    navigation.navigate('Order');
+  const navigateToPageX = (id) => {
+    navigation.navigate('Order',data);
+    {console.log("idiiiiiii",id)}
   };
 
 
@@ -19,9 +24,9 @@ function Menu({data}) {
   return (
    
     <View style={styles.outer}>
-    <Button onPress={navigateToPageX}>Orderrrr</Button>
+    {/* <Button onPress={navigateToPageX}>Orderrrr</Button> */}
     <View  style={styles.cardContainer}>
-    <Pressable >
+    <Pressable onPress={()=>navigateToPageX(data.id)}>
     <Image  style={styles.imageStyle}  source={data.image}/>
     </Pressable>
        <View style={styles.info}>

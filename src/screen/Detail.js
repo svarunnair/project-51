@@ -72,7 +72,7 @@ function Detail(info,{navigation}) {
      <FlatList 
        data={foodList} 
        renderItem={({item})=>{
-        return <Menu data={item} navigation={navigation}/>
+        return <Menu data={item} navigation={navigation} />
        }}
        showsVerticalScrollIndicator={false}
       />
