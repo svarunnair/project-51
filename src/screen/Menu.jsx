@@ -1,32 +1,37 @@
 import React from 'react'
-import { Text, View ,StyleSheet, Dimensions, Image, Button, Pressable} from 'react-native'
+import { Dimensions,StyleSheet ,Image, Text, Pressable } from 'react-native'
+import { View } from 'react-native'
 import IconLabel from '../components/IconLabel'
+import { Button } from '@rneui/base'
+import { useNavigation } from '@react-navigation/native';
+function Menu({data}) {
+ const navigation = useNavigation();
+  console.log("MenuDataaaaa",data)
+ console.log("MenuNav",navigation)
 
-function Restaurent({info,navigation}) {
 
-console.log("Resnav...",navigation)
+  const navigateToPageX = () => {
+    navigation.navigate('Order');
+  };
+
+
+
   return (
-    <View style={styles.outer}>
-    <View  style={styles.cardContainer}  >
    
-<Pressable onPress={()=>navigation.navigate("Detail",{info,navigation})}>
-    <Image style={styles.imageStyle} source={info.image}/>
+    <View style={styles.outer}>
+    <Button onPress={navigateToPageX}>Orderrrr</Button>
+    <View  style={styles.cardContainer}>
+    <Pressable >
+    <Image  style={styles.imageStyle}  source={data.image}/>
     </Pressable>
        <View style={styles.info}>
-        <Text style={styles.titleStyle}>{info.name}</Text>
-        <Text style={styles.cato}>{info.categories}</Text>
-      
-   
-    <View  style={styles.iconStyle}>
-    
-       
-   <IconLabel name="time" label={info.deliveryTime} color="#fff"/>
-   <IconLabel name="pin-outline" label={info.distance} color="#000"/>
-</View>
+        <Text style={styles.titleStyle}>{data.name}</Text>
+        <Text style={styles.cato}>₹ {data.price}.00</Text>
    </View>
     </View>
     </View>
   )
+  
 }
 
 
@@ -34,6 +39,7 @@ console.log("Resnav...",navigation)
 const deviceWidth=Math.round(Dimensions.get("window").width)
 const styles=StyleSheet.create({
     cardContainer:{
+      
         width:deviceWidth-25 ,
         backgroundColor:"#8FBC8F",
     height:200,
@@ -61,13 +67,16 @@ const styles=StyleSheet.create({
         alignItems:"center",
         marginTop:10,
         marginBottom:10,
+        
     },
     titleStyle:{
+
         fontSize:20,
         fontWeight:"800",
     },
     cato:{
-        fontWeight:"200",      
+      fontSize:15,
+        fontWeight:"500",      
     },
     info:{
         marginHorizontal:10,
@@ -79,4 +88,4 @@ const styles=StyleSheet.create({
     }
 })
 
-export default Restaurent
+export default Menu

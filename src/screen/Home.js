@@ -1,6 +1,6 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import Restaurent from './Restaurent';
 import Header from '../components/Header';
 import { FlatList } from 'react-native';
@@ -12,7 +12,7 @@ const restautents=[
         categories:"Biriyani,porotta, coffe,cakes",
         deliveryTime:"30min",
         distance:"6km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img6.jpeg")
     },
     {
         id:2,
@@ -20,7 +20,7 @@ const restautents=[
         categories:"Rice,porotta, coffe,cakes",
         deliveryTime:"20min",
         distance:"3km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img1.jpeg")
     },
     {
         id:3,
@@ -28,7 +28,7 @@ const restautents=[
         categories:"porotta, coffe,cakes",
         deliveryTime:"40min",
         distance:"16km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img2.jpeg")
     },
     {
         id:4,
@@ -36,7 +36,7 @@ const restautents=[
         categories:"Biriyani,kabab, coffe,cakes",
         deliveryTime:"36min",
         distance:"12km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img3.jpeg")
     },
     {
         id:5,
@@ -44,7 +44,7 @@ const restautents=[
         categories:"juice,porotta, coffe,cakes",
         deliveryTime:"40min",
         distance:"26km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img4.jpeg")
     },
     {
         id:6,
@@ -52,23 +52,23 @@ const restautents=[
         categories:"Beef, coffe,cakes",
         deliveryTime:"10min",
         distance:"4km",
-        image:require("../../assets/download.jpeg")
+        image:require("../../assets/img5.jpeg")
     },
 ]
 
 
 
-function Home() {
+function Home({navigation}) {
+  console.log("HmNav",navigation)
   
   return (
    <View style={styles.container}>
-      <Header label="Food Central"/>
-      {/* <Text>Home page....!</Text> */}
+      {/* <Header label="Food Central"/> */}
        <StatusBar barStyle="dark-content"/>
        <FlatList 
        data={restautents} 
        renderItem={({item})=>{
-        return <Restaurent info={item}/>
+        return <Restaurent navigation={navigation} info={item}/>
        }}
        keyExtractor={(restautents)=>restautents.id.toString()}
        showsVerticalScrollIndicator={false}
@@ -83,7 +83,7 @@ function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6c5ce7',
+    backgroundColor:"#FFD700",
     alignItems: 'center',
    
   },

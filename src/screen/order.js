@@ -1,8 +1,11 @@
 import React from 'react'
+import { Text, View } from 'react-native'
 
 function order() {
   return (
-    <div>order</div>
+    <View>
+    <Text>Orderrrrrr</Text>
+    </View>
   )
 }
 
