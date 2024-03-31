@@ -56,7 +56,10 @@ const foodList=[
   },
 ]
 
-function Detail(info,{navigation}) {
+function Detail(info,{navigation},distance) {
+
+  console.log("infoDetail",info)
+  console.log("InfoDDDDDDD.............",distance)
 
  
    
@@ -64,7 +67,7 @@ function Detail(info,{navigation}) {
     <View style={styles.container}>
    
     <View>
-    <Image source={info.route.params.info.image}/>
+    <Image style={styles.imgStyle} source={info.route.params.info.image}/>
    <Text  style={styles.box}> {info.route.params.info.name} </Text> 
    <Text> {info.route.params.info.categories} </Text> 
     </View>
@@ -72,7 +75,7 @@ function Detail(info,{navigation}) {
      <FlatList 
        data={foodList} 
        renderItem={({item})=>{
-        return <Menu data={item} navigation={navigation} />
+        return <Menu data={item} navigation={navigation} info={info} />
        }}
        showsVerticalScrollIndicator={false}
       />
@@ -92,6 +95,9 @@ const styles=StyleSheet.create({
 box:{
   fontSize:22,
   fontWeight:"600"
+},
+imgStyle:{
+  width:deviceWidth
 }
 })
 export default Detail

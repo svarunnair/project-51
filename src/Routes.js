@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screen/Home';
 import Detail from './screen/Detail';
-import order from './screen/order';
 import Restaurent from './screen/Restaurent';
+import Order from './screen/Order';
+import Payment from './screen/Payment';
 
 
 
@@ -22,10 +23,11 @@ function Routes({data}) {
           headerTitleAlign:"center"
 
         }}>
-            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="Restaurants" component={Home}/>
             {/* <Stack.Screen name="Restaurent" data={data} component={Restaurent}/> */}
              <Stack.Screen name="Detail" component={Detail}/>
-              <Stack.Screen name="Order" component={order}/>
+              <Stack.Screen name="Order" component={Order}/>
+              <Stack.Screen name="Order List" component={Payment}/>
         </Stack.Navigator>
     </NavigationContainer>
   )

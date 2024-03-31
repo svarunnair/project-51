@@ -5,7 +5,10 @@ import IconLabel from '../components/IconLabel'
 import { Button } from '@rneui/base'
 import { useNavigation } from '@react-navigation/native';
 
-function Menu({data}) {
+function Menu({data},info) {
+
+  console.log("MInfoo",info)
+    
   
  const navigation = useNavigation();
 

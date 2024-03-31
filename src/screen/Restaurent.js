@@ -4,12 +4,18 @@ import IconLabel from '../components/IconLabel'
 
 function Restaurent({info,navigation}) {
 
+
+    console.log("RESInFooo>.....",info.distance)
+
+    const distance=info.distance
+
+
 console.log("Resnav...",navigation)
   return (
     <View style={styles.outer}>
     <View  style={styles.cardContainer}  >
    
-<Pressable onPress={()=>navigation.navigate("Detail",{info,navigation})}>
+<Pressable onPress={()=>navigation.navigate("Detail",{info,navigation,distance})}>
     <Image style={styles.imageStyle} source={info.image}/>
     </Pressable>
        <View style={styles.info}>
