@@ -6,6 +6,8 @@ import Detail from './screen/Detail';
 import Restaurent from './screen/Restaurent';
 import Order from './screen/Order';
 import Payment from './screen/Payment';
+import Signup from './screen/auth/Signup';
+import Signin from './screen/auth/Signin';
 
 
 
@@ -13,7 +15,7 @@ function Routes({data}) {
     const Stack = createNativeStackNavigator()
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'
+        <Stack.Navigator initialRouteName='Signup'
         screenOptions={{
           statusBarColor:"black",
           headerStyle:{
@@ -24,6 +26,8 @@ function Routes({data}) {
 
         }}>
             <Stack.Screen name="Restaurants" component={Home}/>
+             <Stack.Screen name="Signup" component={Signup}/>
+              <Stack.Screen name="Signin" component={Signin}/>
             {/* <Stack.Screen name="Restaurent" data={data} component={Restaurent}/> */}
              <Stack.Screen name="Detail" component={Detail}/>
               <Stack.Screen name="Order" component={Order}/>
